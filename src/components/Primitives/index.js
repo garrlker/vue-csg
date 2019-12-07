@@ -1,4 +1,4 @@
-import Part from './Mixins/Part';
+import Part from '../Mixins/Part';
 import { CSG } from '@jscad/csg';
 
 const preparePrimitive = (fn, addExtraOps) => ({

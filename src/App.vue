@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <HelloWorld msg="Welcome to Your Vue.js App" />
     <part>
       <cube :size="5" :pos="[-5,0,0]">
         <!-- <cube :size="50" /> -->
@@ -11,28 +11,27 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import Cube from './components/Primitives/Cube.vue'
-import Part from './components/Part.vue'
+import HelloWorld from "./components/HelloWorld.vue";
+import { Part, Cube } from "./index";
 
 export default {
-  name: 'app',
-  provide () {
+  name: "app",
+  provide() {
     return {
       parentReady: new Promise(resolve => resolve())
-    }
+    };
   },
   components: {
     HelloWorld,
     Cube,
     Part
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

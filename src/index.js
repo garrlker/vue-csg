@@ -1,4 +1,3 @@
-// import Cube from "./components/Primitives/Cube.vue";
 import Part from './components/Part.vue'
 import {
   Cube,
@@ -8,7 +7,7 @@ import {
   roundedCube,
   roundedCylinder,
   cylinderElliptic
-} from "./components/index"
+} from "./components/Primitives/index"
 
 export {
   Part,
