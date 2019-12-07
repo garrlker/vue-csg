@@ -10,13 +10,24 @@ export default {
   props: {
   },
   methods: {
-    setup () {
+    generateGeometry (attrs) {
       // this.$geometry = CSG.cube({ size: this.size, center: this.center })
-      debug('CUBE', this.$attrs)
-      this.$geometry = CSG.cube(this.$attrs)
-      if (this.$attrs.size) { this.$geometry.scale(this.$attrs.size) }
+      debug('CUBE', attrs)
+      return CSG.cube(attrs)
 
-      debug('Cube Geometry', this.uuid, this.$geometry)
+      // if (this.$attrs.size) { 
+      //   var scalar;
+      //   var size = this.$attrs.size;
+
+      //   this.$geometry = this.$geometry.scale(this.$attrs.size) 
+      //   debug(`Scale Size Set ${this.$attrs.size}`)
+      // }
+
+      // if(this.$attrs.pos){
+      //   this.$geometry = this.$geometry.translate([this.$attrs.pos[0], this.$attrs.pos[1], this.$attrs.pos[2]])
+      // }
+
+      // debug('Cube Geometry', this.uuid, this.$geometry)
       // this.$emit('geometry', this.$geometry)
       // console.log('Emitted own geometry', this.size, this.$geometry)
     }

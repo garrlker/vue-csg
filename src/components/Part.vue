@@ -1,5 +1,6 @@
 <script>
 import Part from './Mixins/Part'
+import { CSG } from '@jscad/csg'
 import Debug from 'debug'
 const debug = Debug('ParentPart')
 
@@ -8,14 +9,15 @@ export default {
   mixins: [Part],
   inject: [],
   methods: {
-    setup () {}
+    generateGeometry: () => new CSG()
   },
   mounted () {
     debug('ParentPart mounted', this.uuid)
     // this.$emit(`${this.uuid}-update-tree`);
     this.updateGeometry()
     // this.updateChildGeometry = geometry => debug("GEO", geometry);
-    debug(this.$geometry)
+    debug("PART GEOMETRY", this.$geometry)
+    this.$emit('geometry', this.$geometry);
   }
 }
 </script>

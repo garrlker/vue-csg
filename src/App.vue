@@ -3,8 +3,8 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     <part>
-      <cube :size="5" :center="true">
-        <cube :size="50" />
+      <cube :size="5" :pos="[-5,0,0]">
+        <!-- <cube :size="50" /> -->
       </cube>
     </part>
   </div>
