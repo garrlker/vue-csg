@@ -6,6 +6,7 @@ import {
   Polyhedron,
   roundedCube,
   roundedCylinder,
+  Torus,
   cylinderElliptic
 } from "./components/Primitives/index"
 
@@ -27,6 +28,7 @@ export {
   Polyhedron,
   roundedCube,
   roundedCylinder,
+  Torus,
   cylinderElliptic,
 
   // OPs

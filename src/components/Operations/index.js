@@ -1,15 +1,18 @@
 import Operation from '../Mixins/Operation';
+import { booleanOps } from '@jscad/scad-api';
+console.log('bla ops', booleanOps);
 
 const prepareOperation = fn => ({
   mixins: [Operation],
   methods:{
-    applyOperation: (finalPrimitive, leafPrimitive) => finalPrimitive[fn](leafPrimitive)
+    applyOperation: fn
   }
 });
 
-export const Union = prepareOperation('union');
-export const Subtract = prepareOperation('subtract');
-export const Intersect = prepareOperation('intersect');
+// export const Union = prepareOperation('union');
+export const Union = prepareOperation(booleanOps.union);
+export const Subtract = prepareOperation(booleanOps.difference);
+export const Intersect = prepareOperation(booleanOps.intersection);
 export const Hull = prepareOperation('hull');
 
 
