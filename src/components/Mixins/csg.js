@@ -47,13 +47,17 @@ export default {
   
       if(this.numberOfChildren > 0){
         if(this.$childPrimitives.length >= this.numberOfChildren){
-
-          // If we are an operation
-          if(this.type === "operation"){
-            outputCSG = this.applyOperation(this.$childPrimitives);
-          }else{
-            outputCSG = union(...this.$childPrimitives, this.$geometry || []);
-          }
+          switch(this.type) {
+            case "operation":
+              outputCSG = this.applyOperation(this.$childPrimitives);
+              break;
+            case "transform":
+              outputCSG = this.applyTransform(this.$attrs.xform, this.$childPrimitives[0]);
+              break;
+            default:
+              // Assume we're a primitive
+              outputCSG = union(...this.$childPrimitives, this.$geometry || []);
+            } 
         }
       }else{
         // We have 0 children

@@ -1,6 +1,9 @@
 import Operation from '../Mixins/Operation';
 import { booleanOps } from '@jscad/scad-api';
-console.log('bla ops', booleanOps);
+import { CSG } from "@jscad/csg";
+import * as util from 'jscad-utils';
+util.init.default(CSG)
+console.log('bla ops', util);
 
 const prepareOperation = fn => ({
   mixins: [Operation],

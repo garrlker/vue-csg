@@ -13,9 +13,21 @@ import {
 import {
   Union,
   Subtract,
-  Intersect,
-  Hull
+  Intersect
 } from "./components/Operations/index"
+
+import {
+  Contract,
+  Expand,
+  Hull,
+  Minkowski,
+  Mirror,
+  Rotate,
+  Scale,
+  Transform,
+  Translate
+} from "./components/Transforms/index"
+
 
 
 export {
@@ -35,5 +47,15 @@ export {
   Union,
   Subtract,
   Intersect,
-  Hull
+
+  // Transformations
+  Contract,
+  Expand,
+  Hull,
+  Minkowski,
+  Mirror,
+  Rotate,
+  Scale,
+  Transform,
+  Translate
 }
