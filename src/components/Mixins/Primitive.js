@@ -10,7 +10,7 @@ export default {
   },
   mounted(){
     this.$geometry = this.generateCSG(this.$attrs);
-    console.log("PRIM", this.$geometry, this.$childPrimitives);
+    console.log(`${this.uuid} - Mounted geometry`, this.$geometry, this.$childPrimitives, this.$attrs);
     this.emitCSG();
   }
 }

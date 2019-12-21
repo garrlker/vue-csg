@@ -1,4 +1,3 @@
-import Part from './components/Part.vue'
 import {
   Cube,
   Sphere,
@@ -31,8 +30,6 @@ import {
 
 
 export {
-  Part,
-
   // Primitives
   Cube,
   Sphere,

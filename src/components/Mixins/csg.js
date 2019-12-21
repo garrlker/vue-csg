@@ -9,7 +9,6 @@ export default {
   provide() {
     return {
       outputCSGtoParent: this.receiveChildCSG,
-      parentReady: this.isReady,
       parentType: this.type,
       register: this.incrementChildren,
       unregister: this.decrementChildren
@@ -18,9 +17,6 @@ export default {
   inject: {
     outputCSGtoParent: {
       default: () => function(){}
-    },
-    parentReady: {
-      default: Promise.resolve(null),
     },
     parentType: {
       default: "primitive"
@@ -34,10 +30,21 @@ export default {
   },
   data() {
     return {
-      isReady: undefined,
+      isReady: false,
       childID: 0,
       numberOfChildren: 0,
       type: "primitve"
+    }
+  },
+  watch: {
+    $attrs(){
+      console.log("Attrs changed");
+      if(this.type === "primitive"){
+        console.log("Generating CSG");
+        this.$geometry = this.generateCSG(this.$attrs);
+        console.log(this.$geometry, this.$attrs);
+        this.emitCSG();  
+      }
     }
   },
   methods: {
@@ -77,6 +84,10 @@ export default {
     receiveChildCSG(childID, childGeometry){
         debug(`${this.uuid} caching child primitive`);
         this.$childPrimitives[childID] = childGeometry;
+
+        if(this.isReady){
+          this.emitCSG();
+        }
     },
     incrementChildren() {
       this.numberOfChildren += 1;
@@ -113,6 +124,7 @@ export default {
   
   async mounted () {
     debug("UUID - Mounted", this.uuid);
+    this.isReady = true;
   },
   render (createElement) {
     return createElement('div', this.$slots.default)
