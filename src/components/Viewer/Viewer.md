@@ -1,0 +1,5 @@
+```js
+<viewer>
+  <cube/>
+</viewer>
+```

@@ -1,16 +1,15 @@
 import uuid from './uuid'
-import csgMixin from "../Mixins/csg";
+import csgMixin from '../Mixins/csg'
 
 export default {
-  mixins: [uuid,csgMixin],
-  data() {
+  mixins: [uuid, csgMixin],
+  data () {
     return {
-      type: "transform"
+      type: 'transform'
     }
   },
-  mounted(){
-    this.emitCSG();
+  mounted () {
+    this.emitCSG()
   }
 
 }
-

@@ -3,17 +3,14 @@ import {
   Sphere,
   Cylinder,
   Polyhedron,
-  roundedCube,
-  roundedCylinder,
-  Torus,
-  cylinderElliptic
-} from "./components/Primitives/index"
+  Torus
+} from './components/Primitives/index'
 
 import {
   Union,
   Subtract,
   Intersect
-} from "./components/Operations/index"
+} from './components/Operations/index'
 
 import {
   Contract,
@@ -25,9 +22,7 @@ import {
   Scale,
   Transform,
   Translate
-} from "./components/Transforms/index"
-
-
+} from './components/Transforms/index'
 
 export {
   // Primitives
@@ -35,10 +30,7 @@ export {
   Sphere,
   Cylinder,
   Polyhedron,
-  roundedCube,
-  roundedCylinder,
   Torus,
-  cylinderElliptic,
 
   // OPs
   Union,
