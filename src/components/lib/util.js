@@ -13,6 +13,7 @@ function csgToGeometry(inputGeometry) {
 
   var indices = [];
   var vertices = [];
+  var colors = [];
   var vertexCount = 0;
 
   // Process the CSG
@@ -28,6 +29,16 @@ function csgToGeometry(inputGeometry) {
         vertexCount += 1;
       });
 
+      let faceColor = triangle.shared.color; 
+
+      if(!faceColor){
+        faceColor = [1,1,1,1];
+      }
+
+      colors.push(faceColor);
+      colors.push(faceColor);
+      colors.push(faceColor);
+
       indices.push([currentTags[0],
       currentTags[1],
       currentTags[2]]);
@@ -35,7 +46,7 @@ function csgToGeometry(inputGeometry) {
   });
   var normals = computeNormals(indices, vertices);
 
-  return { vertices, indices, normals };
+  return { vertices, indices, normals, colors };
 }
 
 export { csgToGeometry };

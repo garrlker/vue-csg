@@ -38,27 +38,32 @@ export default {
   },
   methods: {
     createCSGDrawCall(csg) {
-      var { vertices, indices, normals } = csgToGeometry(csg);
-
+      var { vertices, indices, normals, colors } = csgToGeometry(csg);
       this.drawCSG = this.regl({
         frag: `
       precision mediump float;
       varying vec3 vnormal;
+      varying vec4 vcolor;
       void main () {
-        gl_FragColor = vec4(abs(vnormal), 1.0);
+        //gl_FragColor = vec4(abs(vnormal), 1.0);
+        gl_FragColor = vcolor;
       }`,
         vert: `
       precision mediump float;
       uniform mat4 projection, view;
       attribute vec3 position, normal;
+      attribute vec4 color;
       varying vec3 vnormal;
+      varying vec4 vcolor;
       void main () {
         vnormal = normal;
+        vcolor = color;
         gl_Position = projection * view * vec4(position, 1.0);
       }`,
         attributes: {
           position: vertices,
-          normal: normals
+          normal: normals,
+          color: colors
         },
         elements: indices
       });
