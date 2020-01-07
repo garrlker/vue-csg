@@ -24,6 +24,8 @@ import {
   Translate
 } from './components/Transforms/index'
 
+import Viewer from "./components/Viewer/Viewer";
+
 export {
   // Primitives
   Cube,
@@ -46,5 +48,7 @@ export {
   Rotate,
   Scale,
   Transform,
-  Translate
+  Translate,
+
+  Viewer
 }

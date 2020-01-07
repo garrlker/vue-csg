@@ -32,7 +32,7 @@ function csgToGeometry(inputGeometry) {
       let faceColor = triangle.shared.color; 
 
       if(!faceColor){
-        faceColor = [1,1,1,1];
+        faceColor = [0.24,0.24,0.24,1];
       }
 
       colors.push(faceColor);

@@ -42,11 +42,11 @@ export default {
       this.drawCSG = this.regl({
         frag: `
       precision mediump float;
+      uniform vec3 eye;
       varying vec3 vnormal;
       varying vec4 vcolor;
       void main () {
-        //gl_FragColor = vec4(abs(vnormal), 1.0);
-        gl_FragColor = vcolor;
+        gl_FragColor = vcolor * -dot(vnormal, eye) * -.75;
       }`,
         vert: `
       precision mediump float;
